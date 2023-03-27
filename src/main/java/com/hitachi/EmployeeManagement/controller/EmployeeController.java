@@ -2,11 +2,13 @@ package com.hitachi.EmployeeManagement.controller;
 
 import com.hitachi.EmployeeManagement.model.Employee;
 import com.hitachi.EmployeeManagement.repository.EmployeeRepository;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class EmployeeController {
 
@@ -38,7 +40,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete-employee")
-    public void deleteEmployee(@RequestBody Long id){
+    public void deleteEmployee(@RequestParam Long id){
       repository.deleteById(id);
     }
 
